@@ -1,0 +1,57 @@
+{
+  "name": "zyl-cli-demo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "packageManager": "pnpm@9.7.0",
+  "scripts": {
+    "dev": "turbo run dev",
+    "build": "turbo run build",
+    "release": "turbo run release",
+    "lint": "eslint \"{packages,apps}/**/*.{js,jsx,ts,tsx}\"",
+    "spellcheck": "cspell lint --dot --gitignore --color --cache --show-suggestions \"(packages|apps)/**/*.@(html|js|cjs|mjs|ts|tsx|css|scss|md)\"",
+    "typecheck": "tsc --noEmit",
+    "graph": "madge --extensions ts --ts-config tsconfig.json packages/*/src",
+    "commit": "git-cz",
+    "prepare": "husky"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "config": {
+    "commitizen": {
+      "path": "node_modules/cz-git"
+    }
+  },
+  "lint-staged": {
+    "*.{md,json}": [
+      "prettier --cache --write --no-error-on-unmatched-pattern"
+    ],
+    "*.{ts,tsx}": [
+      "eslint --fix",
+      "prettier --cache --parser=typescript --write"
+    ]
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.6",
+    "@types/jest": "29.5.12",
+    "typescript": "5.9.3",
+    "eslint": "^10.0.1",
+    "@eslint/js": "^10.0.1",
+    "prettier": "3.10.1",
+    "typescript-eslint": "8.72.2",
+    "@typescript-eslint/eslint-plugin": "8.72.2",
+    "eslint-plugin-simple-import-sort": "~14.0.0",
+    "globals": "17.14.0",
+    "cspell": "10.4.1",
+    "lint-staged": "^17.6.0",
+    "@commitlint/cli": "19.4.0",
+    "@commitlint/config-conventional": "~21.2.4",
+    "commitizen": "^4.3.2",
+    "husky": "9.1.4",
+    "cz-git": "1.9.4",
+    "madge": "8.0.0",
+    "turbo": "2.0.12"
+  }
+}
